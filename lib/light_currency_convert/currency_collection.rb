@@ -1,4 +1,4 @@
-require 'active_support'
+require 'json'
 module LightCurrencyConverter
   class CurrencyCollection
     include Enumerable
@@ -6,7 +6,7 @@ module LightCurrencyConverter
     attr_accessor :currencies, :graph
 
     def initialize(json_string)
-      json_entries = ::ActiveSupport::JSON.decode(json_string)
+      json_entries = JSON.parse(json_string)
       @currencies = json_entries.to_a.map { |e| CurrencyCourse.new(*e) }
       @graph = Graph.new
       populate_graph
