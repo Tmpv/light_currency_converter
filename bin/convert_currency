@@ -6,12 +6,13 @@ require 'optparse'
 
 options = {}
 OptionParser.new do |opts|
-  opts.banner = "Usage: [OPTIONS] AMOUNT FROM TO
-                    or: [OPTIONS] FROM TO
-
-                Currency convert toll.
-                When an AMOUN FROM and TO are given outputs a new amount in TO currency.
-                When only FROM and TO are given outputs the course between the currencies."
+  opts.banner = <<-EOT
+  Usage: [OPTIONS] AMOUNT FROM TO
+  or: [OPTIONS] FROM TO
+  Currency convert toll.
+  When an AMOUN FROM and TO are given outputs a new amount in TO currency.
+  When only FROM and TO are given outputs the course between the currencies.
+  EOT
 
   opts.on('-s', '--sourcefile FILE', 'Source file for currencies if non is given a default currency list is used') { |v| options[:source_name] = v }
 end.parse!
