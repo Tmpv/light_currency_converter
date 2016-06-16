@@ -18,11 +18,11 @@ module LightCurrencyConverter
     end
 
     def normal_convert(amount)
-      ((amount.to_f / from.value.to_f) * to.value.to_f).round(2)
+      ((amount.to_f / from.value.to_f) * to.value.to_f)
     end
 
     def invers_convert(amount)
-      ((amount.to_f / to.value.to_f) * from.value.to_f).round(2)
+      ((amount.to_f / to.value.to_f) * from.value.to_f)
     end
 
     def to_s

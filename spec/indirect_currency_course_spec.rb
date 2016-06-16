@@ -8,7 +8,7 @@ describe LightCurrencyConverter::IndirectCurrencyCourse do
   it 'should calculate USD to EUR' do
     indirect_course = LightCurrencyConverter::IndirectCurrencyCourse.new([usd_to_bng_course, eur_to_bgn_course], currency_path)
 
-    expect(indirect_course.convert(1)).to eq(0.89)
+    expect(indirect_course.convert(1).round(2)).to eq(0.89)
     expect(indirect_course.to_s).to include('EUR')
     expect(indirect_course.to_s).to include('USD')
   end

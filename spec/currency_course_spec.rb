@@ -11,14 +11,14 @@ describe LightCurrencyConverter::CurrencyCourse do
     end
 
     context 'inverse convert should convert from BGN to USD' do
-      it { expect(course.invers_convert(1)).to eq(0.57) }
-      it { expect(course.invers_convert(5)).to eq(2.87) }
-      it { expect(course.invers_convert(500)).to eq(287.36) }
+      it { expect(course.invers_convert(1).round(2)).to eq(0.57) }
+      it { expect(course.invers_convert(5).round(2)).to eq(2.87) }
+      it { expect(course.invers_convert(500).round(2)).to eq(287.36) }
     end
 
     context 'convert method should convert from bout currencies' do
       it { expect(course.convert(1, 'USD', 'BGN')).to eq(1.74) }
-      it { expect(course.convert(1, 'BGN', 'USD')).to eq(0.57) }
+      it { expect(course.convert(1, 'BGN', 'USD').round(2)).to eq(0.57) }
 
       it 'should raise and exception if invalid course symbols are given' do
         expect { course.convert('BGN', 'USD', 1) }.to raise_error(ArgumentError)

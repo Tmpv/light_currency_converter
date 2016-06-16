@@ -18,7 +18,7 @@ module LightCurrencyConverter
 
     def convert
       raise NoCourseFundError unless @course
-      @course.convert(amount, from, to)
+      @course.convert(amount, from, to).round(2)
     end
 
     def show_course
